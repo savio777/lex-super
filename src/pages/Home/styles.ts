@@ -3,8 +3,6 @@ import colors from "../../helpers/colors";
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${colors.teaGreen};
-
-  align-items: center;
-  justify-content: center;
+  background-color: ${colors.tealBlue};
+  padding: 5px;
 `;
