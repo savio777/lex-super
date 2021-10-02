@@ -1,56 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { FlatList } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 
 import ItemProduct from "../../components/ItemProduct";
-import { IProduct } from "../../helpers/mockupData";
+import { IProduct, DATA, listCategories } from "../../helpers/mockupData";
 
 import { Container } from "./styles";
 
-const DATA: IProduct[] = [
-  {
-    avatar: "../../assets/products/celular3.jpg",
-    categorie: "celular",
-    note: 4,
-    numberStores: 6,
-    previousValue: 1201.21,
-    title: "Celular teste",
-    value: 1011.14,
-  },
-  {
-    avatar: "../../assets/products/celular3.jpg",
-    categorie: "celular",
-    note: 4,
-    numberStores: 6,
-    previousValue: 1201.21,
-    title: "Celular teste",
-    value: 1011.14,
-  },
-  {
-    avatar: "../../assets/products/celular3.jpg",
-    categorie: "celular",
-    note: 4,
-    numberStores: 6,
-    previousValue: 1201.21,
-    title: "Celular teste",
-    value: 1011.14,
-  },
-  {
-    avatar: "../../assets/products/celular3.jpg",
-    categorie: "celular",
-    note: 4,
-    numberStores: 6,
-    previousValue: 1201.21,
-    title: "Celular teste",
-    value: 1011.14,
-  },
-];
-
 export default function Home() {
+  const [categorieSelected, setCategorieSelected] = useState<
+    "informática" | "televisão" | "celular" | "notebook" | "PC"
+  >("celular");
+
   return (
     <Container>
+      <Picker
+        selectedValue={categorieSelected}
+        onValueChange={(value) => setCategorieSelected(value)}
+      >
+        {listCategories.map((categorie) => (
+          <Picker.Item
+            key={categorie}
+            label={categorie.toLocaleUpperCase()}
+            value={categorie}
+          />
+        ))}
+      </Picker>
+
       <FlatList
-        style={{ marginTop: 100 }}
+        style={{ marginTop: 20 }}
         horizontal
         data={DATA}
         keyExtractor={(_, index) => String(index)}
