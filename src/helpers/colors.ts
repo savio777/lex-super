@@ -5,6 +5,7 @@ const colors = {
   cambridgeBlue: "#9ec1a3",
   teaGreen: "#cfe0c3",
   black: "#1a1a1a",
+  whiteBackground: "#e3e6e1",
 };
 
 export default colors;

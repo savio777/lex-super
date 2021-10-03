@@ -8,7 +8,10 @@ import Home from "./src/pages/Home";
 export default function App() {
   return (
     <>
-      <StatusBar backgroundColor={colors.tealBlue} barStyle="dark-content" />
+      <StatusBar
+        backgroundColor={colors.whiteBackground}
+        barStyle="dark-content"
+      />
       <Home />
     </>
   );
