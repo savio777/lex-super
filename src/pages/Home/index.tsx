@@ -4,17 +4,20 @@ import { FlatList, Text, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 import ItemProduct from "../../components/ItemProduct";
-import { IProduct, DATA, listCategories } from "../../helpers/mockupData";
+import { DATA, listCategories } from "../../helpers/mockupData";
 
 import { Container, ContainerPicker } from "./styles";
 
 export default function Home() {
   const [categorieSelected, setCategorieSelected] = useState<
-    "informática" | "televisão" | "celular" | "notebook" | "PC"
+    "televisão" | "celular" | "notebook" | "PC"
   >("celular");
 
   return (
     <Container>
+      <Text style={{ fontWeight: "bold", fontSize: 18, marginLeft: 5 }}>
+        Escolhe uma categoria
+      </Text>
       <ContainerPicker>
         <Picker
           selectedValue={categorieSelected}
@@ -46,7 +49,7 @@ export default function Home() {
         renderItem={({ item }) =>
           item.categorie === categorieSelected ? (
             <ItemProduct
-              imageSource={require("../../assets/products/celular3.jpg")}
+              imageSource={{ uri: item.avatar }}
               title={item.title}
               onPressBuy={() => console.log(`abrir link do ${item.title}`)}
               stars={[true, true, true, true, false]}
@@ -72,36 +75,9 @@ export default function Home() {
           data={DATA}
           keyExtractor={(_, index) => String(index)}
           renderItem={({ item }) =>
-            item.categorie === categorieSelected ? (
+            item.categorie === "PC" ? (
               <ItemProduct
-                imageSource={require("../../assets/products/celular3.jpg")}
-                title={item.title}
-                onPressBuy={() => console.log(`abrir link do ${item.title}`)}
-                stars={[true, true, true, true, false]}
-                value={item.value}
-                previousValue={item.previousValue}
-                numberStores={item.numberStores}
-              />
-            ) : null
-          }
-        />
-
-        <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-          As melhores televisões pelo melhor preço
-        </Text>
-        <FlatList
-          style={{
-            marginTop: 20,
-            marginBottom: 30,
-            maxHeight: 300,
-          }}
-          horizontal
-          data={DATA}
-          keyExtractor={(_, index) => String(index)}
-          renderItem={({ item }) =>
-            item.categorie === categorieSelected ? (
-              <ItemProduct
-                imageSource={require("../../assets/products/celular3.jpg")}
+                imageSource={{ uri: item.avatar }}
                 title={item.title}
                 onPressBuy={() => console.log(`abrir link do ${item.title}`)}
                 stars={[true, true, true, true, false]}
@@ -126,9 +102,36 @@ export default function Home() {
           data={DATA}
           keyExtractor={(_, index) => String(index)}
           renderItem={({ item }) =>
-            item.categorie === categorieSelected ? (
+            item.categorie === "celular" ? (
               <ItemProduct
-                imageSource={require("../../assets/products/celular3.jpg")}
+                imageSource={{ uri: item.avatar }}
+                title={item.title}
+                onPressBuy={() => console.log(`abrir link do ${item.title}`)}
+                stars={[true, true, true, true, false]}
+                value={item.value}
+                previousValue={item.previousValue}
+                numberStores={item.numberStores}
+              />
+            ) : null
+          }
+        />
+
+        <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+          As melhores televisões pelo melhor preço
+        </Text>
+        <FlatList
+          style={{
+            marginTop: 20,
+            marginBottom: 30,
+            maxHeight: 300,
+          }}
+          horizontal
+          data={DATA}
+          keyExtractor={(_, index) => String(index)}
+          renderItem={({ item }) =>
+            item.categorie === "televisão" ? (
+              <ItemProduct
+                imageSource={{ uri: item.avatar }}
                 title={item.title}
                 onPressBuy={() => console.log(`abrir link do ${item.title}`)}
                 stars={[true, true, true, true, false]}
