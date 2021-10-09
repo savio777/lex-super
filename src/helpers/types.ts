@@ -10,7 +10,7 @@ export interface IProduct {
 
 export const listCategories = ["televisão", "celular", "notebook", "PC"];
 
-export const DATA: IProduct[] = [
+export const mockupDATA: IProduct[] = [
   {
     avatar:
       "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80",
@@ -205,7 +205,7 @@ export const DATA: IProduct[] = [
     avatar:
       "https://images.unsplash.com/photo-1461151304267-38535e780c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1633&q=80",
     categorie: "televisão",
-    note: 4,
+    note: 2,
     numberStores: 6,
     previousValue: 1799.99,
     value: 1650.99,
@@ -215,7 +215,7 @@ export const DATA: IProduct[] = [
     avatar:
       "https://images.unsplash.com/photo-1461151304267-38535e780c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1633&q=80",
     categorie: "televisão",
-    note: 4,
+    note: 2,
     numberStores: 6,
     previousValue: 1799.99,
     value: 1650.99,
@@ -225,7 +225,7 @@ export const DATA: IProduct[] = [
     avatar:
       "https://images.unsplash.com/photo-1461151304267-38535e780c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1633&q=80",
     categorie: "televisão",
-    note: 4,
+    note: 2,
     numberStores: 6,
     previousValue: 1799.99,
     value: 1650.99,
@@ -235,7 +235,7 @@ export const DATA: IProduct[] = [
     avatar:
       "https://images.unsplash.com/photo-1461151304267-38535e780c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1633&q=80",
     categorie: "televisão",
-    note: 4,
+    note: 2,
     numberStores: 6,
     previousValue: 1799.99,
     value: 1650.99,
@@ -245,7 +245,7 @@ export const DATA: IProduct[] = [
     avatar:
       "https://images.unsplash.com/photo-1461151304267-38535e780c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1633&q=80",
     categorie: "televisão",
-    note: 4,
+    note: 2,
     numberStores: 6,
     previousValue: 1799.99,
     value: 1650.99,
@@ -255,7 +255,7 @@ export const DATA: IProduct[] = [
     avatar:
       "https://images.unsplash.com/photo-1461151304267-38535e780c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1633&q=80",
     categorie: "televisão",
-    note: 4,
+    note: 2,
     numberStores: 6,
     previousValue: 1799.99,
     value: 1650.99,
@@ -265,7 +265,7 @@ export const DATA: IProduct[] = [
     avatar:
       "https://images.unsplash.com/photo-1461151304267-38535e780c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1633&q=80",
     categorie: "televisão",
-    note: 4,
+    note: 2,
     numberStores: 6,
     previousValue: 1799.99,
     value: 1650.99,
@@ -275,7 +275,7 @@ export const DATA: IProduct[] = [
     avatar:
       "https://images.unsplash.com/photo-1461151304267-38535e780c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1633&q=80",
     categorie: "televisão",
-    note: 4,
+    note: 2,
     numberStores: 6,
     previousValue: 1799.99,
     value: 1650.99,

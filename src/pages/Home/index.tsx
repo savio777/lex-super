@@ -4,14 +4,33 @@ import { FlatList, Text, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 import ItemProduct from "../../components/ItemProduct";
-import { DATA, listCategories } from "../../helpers/mockupData";
+import { mockupDATA, listCategories } from "../../helpers/types";
 
 import { Container, ContainerPicker } from "./styles";
 
 export default function Home() {
   const [categorieSelected, setCategorieSelected] = useState<
-    "televisão" | "celular" | "notebook" | "PC"
+    "informática" | "televisão" | "celular" | "notebook" | "PC"
   >("celular");
+
+  // ex: [true, true, true, true, false]
+  const returnStars = (note: number): boolean[] => {
+    const stars = [];
+    const noteNegative = 5 - note;
+    let countPositive = 0;
+    let countNegative = 0;
+
+    while (countPositive !== note) {
+      stars.push(true);
+      countPositive++;
+    }
+    while (countNegative !== noteNegative) {
+      stars.push(false);
+      countNegative++;
+    }
+
+    return stars;
+  };
 
   return (
     <Container>
@@ -44,7 +63,7 @@ export default function Home() {
           maxHeight: 310,
         }}
         horizontal
-        data={DATA}
+        data={mockupDATA}
         keyExtractor={(_, index) => String(index)}
         renderItem={({ item }) =>
           item.categorie === categorieSelected ? (
@@ -52,7 +71,7 @@ export default function Home() {
               imageSource={{ uri: item.avatar }}
               title={item.title}
               onPressBuy={() => console.log(`abrir link do ${item.title}`)}
-              stars={[true, true, true, true, false]}
+              stars={returnStars(item.note)}
               value={item.value}
               previousValue={item.previousValue}
               numberStores={item.numberStores}
@@ -72,7 +91,7 @@ export default function Home() {
             maxHeight: 300,
           }}
           horizontal
-          data={DATA}
+          data={mockupDATA}
           keyExtractor={(_, index) => String(index)}
           renderItem={({ item }) =>
             item.categorie === "PC" ? (
@@ -80,34 +99,7 @@ export default function Home() {
                 imageSource={{ uri: item.avatar }}
                 title={item.title}
                 onPressBuy={() => console.log(`abrir link do ${item.title}`)}
-                stars={[true, true, true, true, false]}
-                value={item.value}
-                previousValue={item.previousValue}
-                numberStores={item.numberStores}
-              />
-            ) : null
-          }
-        />
-
-        <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-          Os melhores celulares pelo melhor preço
-        </Text>
-        <FlatList
-          style={{
-            marginTop: 20,
-            marginBottom: 30,
-            maxHeight: 300,
-          }}
-          horizontal
-          data={DATA}
-          keyExtractor={(_, index) => String(index)}
-          renderItem={({ item }) =>
-            item.categorie === "celular" ? (
-              <ItemProduct
-                imageSource={{ uri: item.avatar }}
-                title={item.title}
-                onPressBuy={() => console.log(`abrir link do ${item.title}`)}
-                stars={[true, true, true, true, false]}
+                stars={returnStars(item.note)}
                 value={item.value}
                 previousValue={item.previousValue}
                 numberStores={item.numberStores}
@@ -126,7 +118,7 @@ export default function Home() {
             maxHeight: 300,
           }}
           horizontal
-          data={DATA}
+          data={mockupDATA}
           keyExtractor={(_, index) => String(index)}
           renderItem={({ item }) =>
             item.categorie === "televisão" ? (
@@ -134,7 +126,34 @@ export default function Home() {
                 imageSource={{ uri: item.avatar }}
                 title={item.title}
                 onPressBuy={() => console.log(`abrir link do ${item.title}`)}
-                stars={[true, true, true, true, false]}
+                stars={returnStars(item.note)}
+                value={item.value}
+                previousValue={item.previousValue}
+                numberStores={item.numberStores}
+              />
+            ) : null
+          }
+        />
+
+        <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+          Os melhores celulares pelo melhor preço
+        </Text>
+        <FlatList
+          style={{
+            marginTop: 20,
+            marginBottom: 30,
+            maxHeight: 300,
+          }}
+          horizontal
+          data={mockupDATA}
+          keyExtractor={(_, index) => String(index)}
+          renderItem={({ item }) =>
+            item.categorie === "celular" ? (
+              <ItemProduct
+                imageSource={{ uri: item.avatar }}
+                title={item.title}
+                onPressBuy={() => console.log(`abrir link do ${item.title}`)}
+                stars={returnStars(item.note)}
                 value={item.value}
                 previousValue={item.previousValue}
                 numberStores={item.numberStores}
