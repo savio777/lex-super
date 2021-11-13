@@ -3,7 +3,7 @@ import React from "react";
 import { StatusBar } from "react-native";
 import colors from "./src/helpers/colors";
 
-import Home from "./src/pages/Home";
+import Routes from "./src/routes";
 
 export default function App() {
   return (
@@ -12,7 +12,7 @@ export default function App() {
         backgroundColor={colors.whiteBackground}
         barStyle="dark-content"
       />
-      <Home />
+      <Routes />
     </>
   );
 }

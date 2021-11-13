@@ -8,7 +8,7 @@ import { mockupDATA, listCategories } from "../../helpers/types";
 
 import { Container, ContainerPicker } from "./styles";
 
-export default function Home() {
+export default function Customer() {
   const [categorieSelected, setCategorieSelected] = useState<
     "informática" | "televisão" | "celular" | "notebook" | "PC"
   >("celular");
