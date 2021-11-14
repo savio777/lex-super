@@ -1,3 +1,12 @@
+export interface ICompany {
+  name: string;
+  type: "alimentício" | "etc" | "informática";
+  // logoImage: string;
+  logoImage: string;
+}
+
+export const listCategoriesCompanies = ["alimentício", "etc", "informática"];
+
 export interface IProduct {
   title: string;
   note: number;
