@@ -6,8 +6,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../helpers/colors";
 
-import Admin from "../pages/Admin";
 import Customer from "../pages/Customer";
+
+import DrawerNavigation from "./Drawer";
 
 const Tab = createBottomTabNavigator();
 
@@ -35,7 +36,7 @@ export default function Routes() {
         })}
       >
         <Tab.Screen name="Customer" component={Customer} />
-        <Tab.Screen name="Admin" component={Admin} />
+        <Tab.Screen name="DrawerNavigation" component={DrawerNavigation} />
       </Tab.Navigator>
     </NavigationContainer>
   );

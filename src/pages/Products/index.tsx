@@ -8,7 +8,7 @@ import ItemCompany from "../../components/ItemCompany";
 import { ICompany, listCategoriesCompanies } from "../../helpers/types";
 import { Container, ButtonMain, TextButton, Input } from "./styles";
 
-const Admin: React.FC = () => {
+const Products: React.FC = () => {
   const [openModalCreateCompany, setOpenModalCreateCompany] = useState(false);
   const [nameCompany, setNameCompany] = useState("");
   const [typeCompany, setTypeCompany] = useState<
@@ -86,4 +86,4 @@ const Admin: React.FC = () => {
   );
 };
 
-export default Admin;
+export default Products;
