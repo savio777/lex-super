@@ -10,8 +10,8 @@ import { Container, ContainerPicker } from "./styles";
 
 export default function Customer() {
   const [categorieSelected, setCategorieSelected] = useState<
-    "informática" | "televisão" | "celular" | "notebook" | "PC"
-  >("celular");
+    "informática" | "feijão" | "arroz" | "cerveja" | "leite"
+  >("arroz");
 
   // ex: [true, true, true, true, false]
   const returnStars = (note: number): boolean[] => {
@@ -64,7 +64,7 @@ export default function Customer() {
         }}
         horizontal
         data={mockupDATA}
-        keyExtractor={(_, index) => String(index)}
+        keyExtractor={() => String(Math.random())}
         renderItem={({ item }) =>
           item.categorie === categorieSelected ? (
             <ItemProduct
@@ -80,21 +80,24 @@ export default function Customer() {
         }
       />
 
-      <ScrollView>
+      <ScrollView style={{ flex: 1 }}>
         <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-          Os melhores computadores pelo melhor preço
+          As melhores marcas de arroz pelo melhor preço
         </Text>
         <FlatList
           style={{
             marginTop: 20,
             marginBottom: 30,
-            maxHeight: 300,
+            maxHeight: 310,
+            borderColor: "#ccc",
+            borderWidth: 1,
           }}
           horizontal
           data={mockupDATA}
-          keyExtractor={(_, index) => String(index)}
-          renderItem={({ item }) =>
-            item.categorie === "PC" ? (
+          keyExtractor={() => String(Math.random())}
+          renderItem={({ item }) => {
+            // console.log(`item.categorie = ${item.categorie}`);
+            return item.categorie === "arroz" ? (
               <ItemProduct
                 imageSource={{ uri: item.avatar }}
                 title={item.title}
@@ -104,51 +107,24 @@ export default function Customer() {
                 previousValue={item.previousValue}
                 numberStores={item.numberStores}
               />
-            ) : null
-          }
+            ) : null;
+          }}
         />
 
         <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-          As melhores televisões pelo melhor preço
+          As melhores marcas de leite pelo melhor preço
         </Text>
         <FlatList
           style={{
             marginTop: 20,
             marginBottom: 30,
-            maxHeight: 300,
+            maxHeight: 310,
           }}
           horizontal
           data={mockupDATA}
-          keyExtractor={(_, index) => String(index)}
+          keyExtractor={() => String(Math.random())}
           renderItem={({ item }) =>
-            item.categorie === "televisão" ? (
-              <ItemProduct
-                imageSource={{ uri: item.avatar }}
-                title={item.title}
-                onPressBuy={() => console.log(`abrir link do ${item.title}`)}
-                stars={returnStars(item.note)}
-                value={item.value}
-                previousValue={item.previousValue}
-                numberStores={item.numberStores}
-              />
-            ) : null
-          }
-        />
-
-        <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-          Os melhores celulares pelo melhor preço
-        </Text>
-        <FlatList
-          style={{
-            marginTop: 20,
-            marginBottom: 30,
-            maxHeight: 300,
-          }}
-          horizontal
-          data={mockupDATA}
-          keyExtractor={(_, index) => String(index)}
-          renderItem={({ item }) =>
-            item.categorie === "celular" ? (
+            item.categorie === "leite" ? (
               <ItemProduct
                 imageSource={{ uri: item.avatar }}
                 title={item.title}
