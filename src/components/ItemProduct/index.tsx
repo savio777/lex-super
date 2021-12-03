@@ -24,6 +24,7 @@ interface IProps {
   value: number;
   numberStores: number;
   previousValue: number;
+  company: string;
 }
 
 const ItemProduct: React.FC<IProps> = ({
@@ -33,7 +34,7 @@ const ItemProduct: React.FC<IProps> = ({
   stars,
   previousValue,
   value,
-  numberStores,
+  company,
 }) => (
   <Container>
     <Image
@@ -59,10 +60,10 @@ const ItemProduct: React.FC<IProps> = ({
       <Title>{title}</Title>
       <TextPreviousValue>R$ {String(previousValue)}</TextPreviousValue>
       <TextValue>R$ {String(value)}</TextValue>
-      <TextNumberStores>em {numberStores} lojas</TextNumberStores>
+      <TextNumberStores>{company}</TextNumberStores>
     </ContainerValues>
     <ButtonBuy onPress={onPressBuy}>
-      <TextButtonBuy>Ver Lojas</TextButtonBuy>
+      <TextButtonBuy>Comprar</TextButtonBuy>
     </ButtonBuy>
   </Container>
 );

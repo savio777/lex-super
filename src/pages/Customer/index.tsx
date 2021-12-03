@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import { FlatList, Text, ScrollView } from "react-native";
+import { FlatList, Text, ScrollView, ActivityIndicator } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 import ItemProduct from "../../components/ItemProduct";
-import { mockupDATA, listCategories } from "../../helpers/types";
+import { mockupDATA, listCategories, IProduct } from "../../helpers/types";
 
 import { Container, ContainerPicker } from "./styles";
 
 export default function Customer() {
   const [categorieSelected, setCategorieSelected] = useState<
     "informática" | "feijão" | "arroz" | "cerveja" | "leite"
-  >("arroz");
+  >("cerveja");
+  const [listData, setListData] = useState<IProduct[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const initialData = () => {
+      setLoading(true);
+      setListData(mockupDATA.sort(() => Math.random() - 0.1));
+      setLoading(false);
+    };
+
+    initialData();
+  }, []);
 
   // ex: [true, true, true, true, false]
   const returnStars = (note: number): boolean[] => {
@@ -34,8 +46,10 @@ export default function Customer() {
 
   return (
     <Container>
+      {loading && <ActivityIndicator />}
+
       <Text style={{ fontWeight: "bold", fontSize: 18, marginLeft: 5 }}>
-        Escolhe uma categoria
+        Escolha uma categoria
       </Text>
       <ContainerPicker>
         <Picker
@@ -63,11 +77,12 @@ export default function Customer() {
           maxHeight: 310,
         }}
         horizontal
-        data={mockupDATA}
+        data={listData}
         keyExtractor={() => String(Math.random())}
         renderItem={({ item }) =>
           item.categorie === categorieSelected ? (
             <ItemProduct
+              company={item.company}
               imageSource={{ uri: item.avatar }}
               title={item.title}
               onPressBuy={() => console.log(`abrir link do ${item.title}`)}
@@ -89,16 +104,15 @@ export default function Customer() {
             marginTop: 20,
             marginBottom: 30,
             maxHeight: 310,
-            borderColor: "#ccc",
-            borderWidth: 1,
           }}
           horizontal
-          data={mockupDATA}
+          data={listData}
           keyExtractor={() => String(Math.random())}
           renderItem={({ item }) => {
             // console.log(`item.categorie = ${item.categorie}`);
             return item.categorie === "arroz" ? (
               <ItemProduct
+                company={item.company}
                 imageSource={{ uri: item.avatar }}
                 title={item.title}
                 onPressBuy={() => console.log(`abrir link do ${item.title}`)}
@@ -121,11 +135,12 @@ export default function Customer() {
             maxHeight: 310,
           }}
           horizontal
-          data={mockupDATA}
+          data={listData}
           keyExtractor={() => String(Math.random())}
           renderItem={({ item }) =>
             item.categorie === "leite" ? (
               <ItemProduct
+                company={item.company}
                 imageSource={{ uri: item.avatar }}
                 title={item.title}
                 onPressBuy={() => console.log(`abrir link do ${item.title}`)}
